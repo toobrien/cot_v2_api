@@ -195,6 +195,7 @@ class disagg_futs_only_full(IntEnum):
 	cftc_subgroup_code                       = 189
 	futonly_or_combined                      = 190
 
+
 class disagg_futs_and_opts_full(IntEnum):
 
 	market_and_exchange_names                = 0
@@ -389,6 +390,7 @@ class disagg_futs_and_opts_full(IntEnum):
 	cftc_subgroup_code                       = 189
 	futonly_or_combined                      = 190
 
+
 class fin_futs_only_full(IntEnum):
 
 	market_and_exchange_names                = 0
@@ -479,6 +481,7 @@ class fin_futs_only_full(IntEnum):
 	cftc_subgroup_code                       = 85
 	futonly_or_combined                      = 86
 
+
 class fin_futs_and_opts_full(IntEnum):
 
 	market_and_exchange_names                = 0
@@ -568,6 +571,7 @@ class fin_futs_and_opts_full(IntEnum):
 	cftc_commodity_code_quotes               = 84
 	cftc_subgroup_code                       = 85
 	futonly_or_combined                      = 86
+
 
 class futs_only_full(IntEnum):
 
@@ -701,6 +705,7 @@ class futs_only_full(IntEnum):
 	cftc_market_code_in_initials_quotes      = 127
 	cftc_commodity_code_quotes               = 128
 
+
 class futs_and_opts_full(IntEnum):
 
 	market_and_exchange_names                = 0
@@ -832,6 +837,7 @@ class futs_and_opts_full(IntEnum):
 	cftc_contract_market_code_quotes         = 126
 	cftc_market_code_in_initials_quotes      = 127
 	cftc_commodity_code_quotes               = 128
+
 
 class cit_supp_full(IntEnum):
 

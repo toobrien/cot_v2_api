@@ -34,7 +34,7 @@ if __name__ == "__main__":
 
                 enum_def += f"\t{field_name:40s} = {i}\n"
 
-            file_txt += f"{enum_def}\n"
+            file_txt += f"{enum_def}\n\n"
 
             break
     
