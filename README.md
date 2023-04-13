@@ -9,7 +9,7 @@ Note that `get_index` requires the report name (listed below)--each report track
 
 `get_contract` requires both the report name and the contract code. you may also use a symbol, if it is mapped to its contract code in `common_contracts.py`. I have populated `common_contracts` with a number of popular contracts already. Add any that you see fit after discovering the mapping using `get_index`.
 
-### explanatory links:
+### explanatory links
 
 To better understand the report contents, the CFTC website offers some helpful links:
 
