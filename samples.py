@@ -18,8 +18,7 @@ def s0():
     # example: put into a polars dataframe
 
     con = get_contract("futs_only", "NQ", False)
-
-    df = from_dict(con)
+    df  = from_dict(con)
 
     print(df)
 
