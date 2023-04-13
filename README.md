@@ -24,3 +24,5 @@ my naming conventions are:
 disaggregated explanatory notes: https://www.cftc.gov/idc/groups/public/@commitmentsoftraders/documents/file/disaggregatedcotexplanatorynot.pdf
 
 financial futures explanatory notes: https://www.cftc.gov/idc/groups/public/@commitmentsoftraders/documents/file/tfmexplanatorynotes.pdf
+
+`gen_defs.py` creates `full_recs.py`, which contains records for indexing the results of `cot_v2_api.get_contract`. these records contain every field in the original CoT files, as published by the CFTC. if any of the report formats change, the api should continue functioning as normal. re-run `gen_defs.py` to update the record format.
