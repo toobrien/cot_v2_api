@@ -10,6 +10,11 @@ from time       import time
 def s0():
 
     # set "format" to false to keep original headers
+    
+    # note: in this example, an exchange symbol is used instead of a contract code.
+    #       you can add more symbols -> code mappings to the common_symbols file.
+    #       use the report's index (see sample 3) to discover the mapping.
+           
     # example: put into a polars dataframe
 
     con = get_contract("futs_only", "NQ", False)
