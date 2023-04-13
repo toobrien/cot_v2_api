@@ -28,9 +28,11 @@ def s1():
 
 def s2():
 
-    # bypass this library and get the raw data
+    # bypass this library and get the raw data (column headers are in-tact)
 
-    res = get(f"{API_ROOT}/futs_only/132741").json()
+    eurodollar_code = "132741" # find using the index
+
+    res = get(f"{API_ROOT}/futs_only/{eurodollar_code}").json()
 
     print(dumps(res, indent = 4))
 
