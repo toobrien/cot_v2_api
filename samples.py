@@ -47,7 +47,7 @@ def s2():
     # bypass this library and get the raw data (column headers are in-tact)
 
     report_name     = "futs_only"
-    contract_code   = "132741" # eurodollars; find using the index
+    contract_code   = "076691" # platinum; find using the index
 
     res = get(f"{API_ROOT}/{report_name}/{contract_code}").json()
 
