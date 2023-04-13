@@ -28,3 +28,7 @@ financial futures explanatory notes: https://www.cftc.gov/idc/groups/public/@com
 `gen_defs.py` creates `full_recs.py`, which contains records enums for accessing the results of `cot_v2_api.get_contract`. these enums contain every field in the original CoT files, as published by the CFTC. if any of the report formats change, the api should continue functioning as normal. re-run `gen_defs.py` to update the record format.
 
 note that all values returned by the api are strings.
+
+as the CFTC adds new archives to their site, the api should incorporate them. the reports are published each friday, and the api updates to include the latest report on saturday.
+
+if you notice any errors (surely there are some), please contact me at `tpo.ac2@gmail.com`
