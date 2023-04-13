@@ -7,7 +7,7 @@ you can access the full database of the commitments of traders reports using `co
 
 Note that `get_index` requires the report name (listed below)--each report tracks a different slate of contracts, although the same contract should have the same code in each report.
 
-`get_contract` requires both the report name and the contract code. you may also use a symbol, if it is mapped to its contract code in `common_contracts.py`. I have populated `common_contracts` with a number of popular contracts already. Add any that you see fit after discovering the mapping using `get_index`.
+`get_contract` requires both the report name and the contract code. you may also use a symbol, if it is mapped to its contract code in `common_symbols.py`. I have populated `common_symbols` with a number of popular contracts already. Add any that you see fit after discovering the mapping using `get_index`.
 
 ### explanatory links
 
