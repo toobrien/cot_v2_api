@@ -4,10 +4,15 @@ from json       import dumps
 from requests   import get
 from time       import time
 
-def t1():
+
+def s1():
+
+    # print eurodollar open interest by date
+
+    eurodollars = "132741" # find using the index
 
     start   = time()
-    con     = get_contract("futs_only", "132741")
+    con     = get_contract("futs_only", eurodollars)
 
     recs = zip(
                 con[futs_only_full.as_of_date_in_form_yyyy_mm_dd],
@@ -21,14 +26,18 @@ def t1():
     print(f"elapsed: {time() - start:0.1f}s")
 
 
-def t2():
+def s2():
+
+    # bypass this library and get the raw data
 
     res = get(f"{API_ROOT}/futs_only/132741").json()
 
     print(dumps(res, indent = 4))
 
 
-def t3():
+def s3():
+
+    # print the "futures only" index
 
     idx = get_index("futs_only")
 
@@ -37,6 +46,6 @@ def t3():
 
 if __name__ == "__main__":
 
-    #t1()
-    #t2()
-    t3()
+    #s1()
+    #s2()
+    s3()
