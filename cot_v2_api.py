@@ -21,7 +21,10 @@ def get_index(report_type):
     return res.json()
 
 
-def get_contract(report_type, code_or_symbol):
+def get_contract(
+    report_type:    str, 
+    code_or_symbol: str, 
+    format:         bool = True):
 
     code = code_or_symbol
 
@@ -29,16 +32,18 @@ def get_contract(report_type, code_or_symbol):
 
         code = COMMON_SYMBOLS[code_or_symbol]
 
-    res = get(f"{API_ROOT}/{report_type}/{code}")
-    res = res.json()
+    res     = get(f"{API_ROOT}/{report_type}/{code}")
+    data    = res.json()
 
-    headers = list(res.keys())
-    cols    = list(res.values())
+    if format:
 
-    data = {
-        i : cols[i]
-        for i in range(len(headers))
-    }
+        headers = list(data.keys())
+        cols    = list(data.values())
+
+        data = {
+            i : cols[i]
+            for i in range(len(headers))
+        }
 
     return data
 
