@@ -1,6 +1,6 @@
-from    enum            import IntEnum
 from    requests        import get
 from    common_symbols  import COMMON_SYMBOLS
+
 
 API_ROOT = "https://tvix.xyz/cot_v2"
 
@@ -13,6 +13,7 @@ REPORT_TYPES = [
     "futs_and_opts",
     "cit_supp"
 ]
+
 
 def get_index(report_type):
 
