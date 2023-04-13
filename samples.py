@@ -66,14 +66,14 @@ if __name__ == "__main__":
 
     to_run = int(argv[1])
 
-    start = time()
-
     samples = [
         s0,
         s1,
         s2,
         s3
     ]
+    
+    start = time()
 
     samples[to_run]()
 
