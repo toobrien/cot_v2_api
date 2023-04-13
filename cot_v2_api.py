@@ -1,6 +1,6 @@
-from    enum       import IntEnum
-from    requests   import get
-
+from    enum            import IntEnum
+from    requests        import get
+from    common_symbols  import COMMON_SYMBOLS
 
 API_ROOT = "https://tvix.xyz/cot_v2"
 
@@ -14,7 +14,6 @@ REPORT_TYPES = [
     "cit_supp"
 ]
 
-
 def get_index(report_type):
 
     res = get(f"{API_ROOT}/{report_type}/index")
@@ -22,7 +21,13 @@ def get_index(report_type):
     return res.json()
 
 
-def get_contract(report_type, code):
+def get_contract(report_type, code_or_symbol):
+
+    code = code_or_symbol
+
+    if code_or_symbol in COMMON_SYMBOLS:
+
+        code = COMMON_SYMBOLS[code_or_symbol]
 
     res = get(f"{API_ROOT}/{report_type}/{code}")
     res = res.json()

@@ -1,4 +1,4 @@
-from cot_v2_api import API_ROOT, get_contract, REPORT_TYPES
+from cot_v2_api import API_ROOT, get_contract, get_index, REPORT_TYPES
 from full_recs  import futs_only_full
 from json       import dumps
 from requests   import get
@@ -28,7 +28,15 @@ def t2():
     print(dumps(res, indent = 4))
 
 
+def t3():
+
+    idx = get_index("futs_only")
+
+    print(dumps(idx, indent = 4))
+
+
 if __name__ == "__main__":
 
-    t1()
+    #t1()
     #t2()
+    t3()
