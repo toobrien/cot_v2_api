@@ -38,7 +38,15 @@ def convenience_recs(report_type: int, data: dict):
 
     conv = {}
 
-    if report_type in [ report.futs_only, report.futs_and_opts ]:
+    if report_type in [ report.disagg_futs_only, disagg_futs_and_opts ]:
+
+        pass
+
+    elif report_type in [ report.fin_futs_only, report.fin_futs_and_opts ]:
+
+        pass
+
+    elif report_type in [ report.futs_only, report.futs_and_opts ]:
 
         n_recs = len(data[futs_only_raw.as_of_date_in_form_yyyy_mm_dd])
 
@@ -69,7 +77,7 @@ def convenience_recs(report_type: int, data: dict):
         
         conv[futs_only.oi] = [ int(x) for x in data[futs_only_raw.open_interest_all] ]
 
-    else:
+    elif report_type == report.cit_supp:
 
         pass
 
