@@ -38,7 +38,7 @@ def convenience_recs(report_type: int, data: dict):
 
     conv = {}
 
-    if report_type in [ report.disagg_futs_only, disagg_futs_and_opts ]:
+    if report_type in [ report.disagg_futs_only, report.disagg_futs_and_opts ]:
 
         pass
 
