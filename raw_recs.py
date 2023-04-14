@@ -1,7 +1,7 @@
 from enum import IntEnum
 
 
-class disagg_futs_only_full(IntEnum):
+class disagg_futs_only_raw(IntEnum):
 
 	market_and_exchange_names                = 0
 	as_of_date_in_form_yymmdd                = 1
@@ -196,7 +196,7 @@ class disagg_futs_only_full(IntEnum):
 	futonly_or_combined                      = 190
 
 
-class disagg_futs_and_opts_full(IntEnum):
+class disagg_futs_and_opts_raw(IntEnum):
 
 	market_and_exchange_names                = 0
 	as_of_date_in_form_yymmdd                = 1
@@ -391,7 +391,7 @@ class disagg_futs_and_opts_full(IntEnum):
 	futonly_or_combined                      = 190
 
 
-class fin_futs_only_full(IntEnum):
+class fin_futs_only_raw(IntEnum):
 
 	market_and_exchange_names                = 0
 	as_of_date_in_form_yymmdd                = 1
@@ -482,7 +482,7 @@ class fin_futs_only_full(IntEnum):
 	futonly_or_combined                      = 86
 
 
-class fin_futs_and_opts_full(IntEnum):
+class fin_futs_and_opts_raw(IntEnum):
 
 	market_and_exchange_names                = 0
 	as_of_date_in_form_yymmdd                = 1
@@ -573,7 +573,7 @@ class fin_futs_and_opts_full(IntEnum):
 	futonly_or_combined                      = 86
 
 
-class futs_only_full(IntEnum):
+class futs_only_raw(IntEnum):
 
 	market_and_exchange_names                = 0
 	as_of_date_in_form_yymmdd                = 1
@@ -706,7 +706,7 @@ class futs_only_full(IntEnum):
 	cftc_commodity_code_quotes               = 128
 
 
-class futs_and_opts_full(IntEnum):
+class futs_and_opts_raw(IntEnum):
 
 	market_and_exchange_names                = 0
 	as_of_date_in_form_yymmdd                = 1
@@ -839,7 +839,7 @@ class futs_and_opts_full(IntEnum):
 	cftc_commodity_code_quotes               = 128
 
 
-class cit_supp_full(IntEnum):
+class cit_supp_raw(IntEnum):
 
 	market_and_exchange_names                = 0
 	as_of_date_in_form_yymmdd                = 1

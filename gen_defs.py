@@ -1,14 +1,14 @@
-from cot_v2_api import API_ROOT, REPORT_TYPES
+from cot_v2_api import API_ROOT, REPORT_STR
 from requests   import get
 
 
 if __name__ == "__main__":
 
-    fd = open("./full_recs.py", "w")
+    fd = open("./raw_recs.py", "w")
 
     file_txt = "from enum import IntEnum\n\n\n"
 
-    for rt in REPORT_TYPES:
+    for rt in REPORT_STR.values():
 
         res = get(f"{API_ROOT}/{rt}/index")
         res = res.json()
@@ -19,7 +19,7 @@ if __name__ == "__main__":
             res     = res.json()
             keys    = list(res.keys())
 
-            enum_def = f"class {rt}_full(IntEnum):\n\n"
+            enum_def = f"class {rt}_raw(IntEnum):\n\n"
 
             for i in range(len(keys)):
 
