@@ -3,9 +3,9 @@
 you can access the full database of the commitments of traders reports using `cot_v2_api.py`. the two primary functions are:
 
 - `get_index`: returns an index of cftc code to contract description. these values both codes appear in the text of the cftc reports.
-- `get_contract`: returns the cot data for a single contract in a column-oriented format. Set `format` to `True` and you can access the columns using the record enums in `full_recs.py`
+- `get_contract`: returns the cot data for a single contract in a column-oriented format. Set `format` to `format.raw` and you can access the columns using the record enums in `full_recs.py`. use `format.none` to retain the field names (e.g. for use with a dataframe), and `format.convenience` for smaller records that have only the most useful fields (including net and percentage position calculations). the convenience records are defined in `cot_v2_api.py`.
 
-note that `get_index` requires the report name (listed below)--each report tracks a different slate of contracts, although the same contract should have the same code in each report.
+note that `get_index` requires the report type (listed below)--each report tracks a different slate of contracts, although the same contract should have the same code in each report.
 
 `get_contract` requires both the report name and the contract code. you may also use a symbol, if it is mapped to its contract code in `common_symbols.py`. i have populated `common_symbols` with a number of popular contracts already. add any that you see fit after discovering the mapping using `get_index`.
 
@@ -40,9 +40,10 @@ disaggregated explanatory notes: https://www.cftc.gov/idc/groups/public/@commitm
 
 financial futures explanatory notes: https://www.cftc.gov/idc/groups/public/@commitmentsoftraders/documents/file/tfmexplanatorynotes.pdf
 
+
 ### other
 
-`gen_defs.py` creates `full_recs.py`, which contains records enums for accessing the results of `cot_v2_api.get_contract`. these enums contain every field in the original CoT files, as published by the cftc. if any of the report formats change, the api should continue functioning as normal. re-run `gen_defs.py` to update the record format.
+`gen_defs.py` creates `raw_recs.py`, which contains records enums for accessing the results of `cot_v2_api.get_contract`. the enums contain every field in the original CoT files, unaltered and as published by the cftc--only excess whitespace has been stripped. if any of the report formats change, the api should continue functioning as normal. re-run `gen_defs.py` to update the record format.
 
 note that all values returned by the api are strings.
 
