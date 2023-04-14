@@ -1,6 +1,6 @@
 from    common_symbols  import COMMON_SYMBOLS
 from    enum            import IntEnum
-from    raw_recs       import *
+from    raw_recs        import *
 from    requests        import get
 from    recs            import *
 

@@ -3,7 +3,7 @@
 you can access the full database of the commitments of traders reports using `cot_v2_api.py`. the two primary functions are:
 
 - `get_index`: returns an index of cftc code to contract description. these values both codes appear in the text of the cftc reports.
-- `get_contract`: returns the cot data for a single contract in a column-oriented format. Set `format` to `format.raw` and you can access the columns using the record enums in `full_recs.py`. use `format.none` to retain the field names (e.g. for use with a dataframe), and `format.convenience` for smaller records that have only the most useful fields (including net and percentage position calculations). the convenience records are defined in `cot_v2_api.py`.
+- `get_contract`: returns the cot data for a single contract in a column-oriented format. Set `format` to `format.raw` and you can access the columns using the record enums in `full_recs.py`. use `format.none` to retain the field names (e.g. for use with a dataframe), and `format.convenience` for smaller records that have only the most useful fields (including net and percentage position calculations). the convenience records are defined in `recs.py`.
 
 note that `get_index` requires the report type (listed below)--each report tracks a different slate of contracts, although the same contract should have the same code in each report.
 
