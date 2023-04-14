@@ -1,7 +1,7 @@
 from enum import IntEnum
 
 
-class disagg_futs(IntEnum):
+class disagg_futs_only(IntEnum):
 
     pass
 
@@ -44,6 +44,6 @@ class cit_supp(IntEnum):
 
 # these record types are the same
 
-disagg_futs_and_opts    = disagg_futs
+disagg_futs_and_opts    = disagg_futs_only
 fin_futs_and_opts       = fin_futs_only
 futs_and_opts           = futs_only
