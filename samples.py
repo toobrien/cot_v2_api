@@ -65,27 +65,16 @@ def s3():
 
 def s4():
 
-    con = get_contract(report.futs_only, "ZC", format.raw)
+    # use the convenience record to print the first month of commercial net position as percentage of total open interest
 
-    total_oi    = int(con[futs_only_raw.open_interest_all][0])
-    comm_long   = int(con[futs_only_raw.commercial_positions_long_all][0])
-    comm_short  = int(con[futs_only_raw.commercial_positions_short_all][0])
-    comm_net    = comm_long - comm_short
+    con = get_contract(report.futs_only, "ZC", format.convenience)
 
-    rec0 = [
-        f"name:                         {con[futs_only_raw.market_and_exchange_names][0]}",
-        f"total oi:                     {total_oi}",
-        f"comm_long:                    {comm_long}",
-        f"comm_short:                   {comm_short}",
-        f"comm_pct_long:                {con[futs_only_raw.pct_of_oi_commercial_long_all][0]}",
-        f"comm_pct_long (self-calc):    {comm_long / total_oi * 100:0.1f}",
-        f"comm_pct_short:               {con[futs_only_raw.pct_of_oi_commercial_short_all][0]}",
-        f"comm_pct_short (self-calc):   {comm_short / total_oi * 100:0.1f}",
-        f"comm_net (self-calc):         {comm_net}",
-        f"comm_net_pct (self-calc):     {comm_net / total_oi * 100:0.1f}",
-    ]
+    dates           = con[futs_only.date]
+    comm_net_pct    = con[futs_only.comm_net_pct]
+    
+    for i in range(4):
 
-    print("\n".join(rec0))
+        print(dates[i], f"{comm_net_pct[i]:0.1f}")
 
 
 if __name__ == "__main__":
