@@ -44,6 +44,6 @@ class cit_supp(IntEnum):
 
 # these record types are the same
 
-disagg_futs_and_opts = disagg_futs
-fin_futs_and_opts = fin_futs_only
-futs_and_opts = futs_only
+disagg_futs_and_opts    = disagg_futs
+fin_futs_and_opts       = fin_futs_only
+futs_and_opts           = futs_only
