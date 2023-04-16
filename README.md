@@ -5,7 +5,11 @@ you can access the full database of the commitments of traders reports using `co
 - `get_index`: returns an index of cftc code to contract description. these values both codes appear in the text of the cftc reports.
 - `get_contract`: returns the cot data for a single contract in a column-oriented format. Set `format` to `format.raw` and you can access the columns using the record enums in `full_recs.py`. use `format.none` to retain the field names (e.g. for use with a dataframe), and `format.convenience` for smaller records that have only the most useful fields (including net and percentage position calculations). the convenience records are defined in `recs.py`.
 
-note that `get_index` requires the report type (listed below)--each report tracks a different slate of contracts, although the same contract should have the same code in each report.
+the convenience records are the same between "futures only" and "futures and options" variants of the same report; i.e., all reports except the supplemental report, which has only one format. although convenience records are provided for both forms of each of the other three reports, it's advisable to simply use the "futures only" version.
+
+`get_index` requires the report type (listed below)--each report tracks a different slate of contracts, although the same contract should have the same code in each report. get index also allows (but does not require) start and end dates. these parameters should be in `yyyy-mm-dd`.
+
+note that, unfortunately, the `date` column returned varies by report. for the disaggregated and financial futures reports, dates represent the publication of the report (i.e. friday). for the legacy and supplemental reports, dates represent the "as of" date, i.e. tuesday, when the data was collected.
 
 `get_contract` requires both the report name and the contract code. you may also use a symbol, if it is mapped to its contract code in `common_symbols.py`. i have populated `common_symbols` with a number of popular contracts already. add any that you see fit after discovering the mapping using `get_index`.
 
