@@ -144,7 +144,7 @@ def convenience_recs(report_type: int, data: dict):
         conv[futs_only.noncomm_long]        = [ int(x)      for x in data[futs_only_raw.noncommercial_positions_long_all]                           ]
         conv[futs_only.noncomm_long_pct]    = [ float(x)    for x in data[futs_only_raw.pct_of_oi_noncommercial_long_all]                           ]
         conv[futs_only.noncomm_short]       = [ int(x)      for x in data[futs_only_raw.noncommercial_positions_short_all]                          ]
-        conv[futs_only.noncomm_short_pct]   = [ float(x)    for x in data[futs_only_raw.pct_of_oi_commercial_short_all]                             ]
+        conv[futs_only.noncomm_short_pct]   = [ float(x)    for x in data[futs_only_raw.pct_of_oi_noncommercial_short_all]                          ]
         conv[futs_only.noncomm_spread]      = [ int(x)      for x in data[futs_only_raw.noncommercial_positions_spreading_all]                      ]
         conv[futs_only.noncomm_spread_pct]  = [ float(x)    for x in data[futs_only_raw.pct_of_oi_noncommercial_spreading_all]                      ]
         conv[futs_only.noncomm_net]         = [ conv[futs_only.noncomm_long][i]     - conv[futs_only.noncomm_short][i]      for i in range(n_recs)  ]
