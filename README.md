@@ -49,7 +49,7 @@ financial futures explanatory notes: https://www.cftc.gov/idc/groups/public/@com
 
 `gen_defs.py` creates `raw_recs.py`, which contains records enums for accessing the results of `cot_v2_api.get_contract`. the enums contain every field in the original CoT files, unaltered and as published by the cftc--only excess whitespace has been stripped. if any of the report formats change, the api should continue functioning as normal. re-run `gen_defs.py` to update the record format.
 
-note that all values returned by the api are strings.
+note that all raw values returned by the api are strings. the convenience records use integer, float, and strings, as appropriate.
 
 as the cftc adds new archives to their site, the api should incorporate them. the reports are published each friday, and the api updates to include the latest report on saturday.
 
