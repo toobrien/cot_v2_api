@@ -65,14 +65,21 @@ def s3():
 
 def s4():
 
-    # use the convenience record to print the first month of commercial net position as percentage of total open interest
+    # use the convenience record to print the first 6 months of commercial net position as percentage of total open interest
+    # for reports between 2018-01-01 and 2024-01-01
 
-    con = get_contract(report.futs_only, "ZC", format.convenience)
+    con = get_contract(
+                        report.futs_only, 
+                        "ZC", 
+                        format.convenience,
+                        "2018-01-01",
+                        "2024-01-01"
+                    )
 
     dates           = con[futs_only.date]
     comm_net_pct    = con[futs_only.comm_net_pct]
     
-    for i in range(4):
+    for i in range(24):
 
         print(dates[i], f"{comm_net_pct[i]:0.1f}")
 

@@ -1,8 +1,10 @@
-from    common_symbols  import COMMON_SYMBOLS
-from    enum            import IntEnum
-from    raw_recs        import *
-from    requests        import get
-from    recs            import *
+from bisect         import bisect_left
+from common_symbols import COMMON_SYMBOLS
+from enum           import IntEnum
+from raw_recs       import *
+from requests       import get
+from recs           import *
+
 
 class report(IntEnum):
 
@@ -32,6 +34,7 @@ REPORT_STR  = {
                 report.futs_and_opts:           "futs_and_opts",
                 report.cit_supp:                "cit_supp"
             }
+DATE_KEY    = 2
 
 
 def convenience_recs(report_type: int, data: dict):
@@ -213,12 +216,31 @@ def get_contract(
 
     res     = get(f"{API_ROOT}/{REPORT_STR[report_type]}/{code}")
     data    = res.json()
+    headers = list(data.keys())
+    cols    = list(data.values())
+    i       = 0
+    j       = len(cols[0]) # all cols should be the same length
+
+    if start_date:
+
+        # all reports have YYYY-MM-DD in 3rd col
+        # however, for some this is the date of the report report (friday); 
+        # for others it is the "as of" date (i.e. tuesday)
+
+        i = bisect_left(data[headers[DATE_KEY]], start_date)
+
+    if end_date:
+
+        j = bisect_left(data[headers[DATE_KEY]], end_date)
+
+    data = {
+        header: col[i:j]
+        for header, col in data.items()
+    }
 
     if fmt != format.none:
 
-        headers = list(data.keys())
-        cols    = list(data.values())
-
+        cols = list(data.values())
         data = {
             i : cols[i]
             for i in range(len(headers))
@@ -227,6 +249,8 @@ def get_contract(
         if fmt == format.convenience:
 
             data = convenience_recs(report_type, data)
+    
+    
 
     return data
 
