@@ -223,9 +223,9 @@ def get_contract(
 
     if start_date:
 
-        # all reports have YYYY-MM-DD in 3rd col
+        # all reports have YYYY-MM-DD in 2nd col.
         # however, for some this is the date of the report report (friday); 
-        # for others it is the "as of" date (i.e. tuesday)
+        # for others, it is the "as of" date (i.e. tuesday).
 
         i = bisect_left(data[headers[DATE_KEY]], start_date)
 
@@ -249,8 +249,5 @@ def get_contract(
         if fmt == format.convenience:
 
             data = convenience_recs(report_type, data)
-    
-    
 
     return data
-
