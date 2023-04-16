@@ -24,21 +24,23 @@ class disagg_futs_only(IntEnum):
     managed_short_pct   = 18
     managed_spread      = 19
     managed_spread_pct  = 20
-    other_long          = 21
-    other_long_pct      = 22
-    other_short         = 23
-    other_short_pct     = 24
-    other_spread        = 25
-    other_spread_pct    = 26
-    other_net           = 27
-    other_net_pct       = 28
-    nonrep_long         = 29
-    nonrep_long_pct     = 30
-    nonrep_short        = 31
-    nonrep_short_pct    = 32
-    nonrep_net          = 33
-    nonrep_net_pct      = 34
-    oi                  = 35
+    managed_net         = 21
+    managed_net_pct     = 22
+    other_long          = 23
+    other_long_pct      = 24
+    other_short         = 25
+    other_short_pct     = 26
+    other_spread        = 27
+    other_spread_pct    = 28
+    other_net           = 29
+    other_net_pct       = 30
+    nonrep_long         = 31
+    nonrep_long_pct     = 32
+    nonrep_short        = 33
+    nonrep_short_pct    = 34
+    nonrep_net          = 35
+    nonrep_net_pct      = 36
+    oi                  = 37
 
 
 class fin_futs_only(IntEnum):

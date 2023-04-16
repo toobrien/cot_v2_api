@@ -1,11 +1,12 @@
-from cot_v2_api import API_ROOT, get_contract, get_index, format, report
-from raw_recs   import futs_only_raw
-from recs       import futs_only
-from json       import dumps
-from polars     import from_dict
-from requests   import get
-from sys        import argv
-from time       import time
+from    cot_v2_api              import API_ROOT, get_contract, get_index, format, report
+from    json                    import dumps
+import  plotly.graph_objects    as go
+from    polars                  import from_dict
+from    raw_recs                import futs_only_raw
+from    recs                    import disagg_futs_only, futs_only
+from    requests                import get
+from    sys                     import argv
+from    time                    import time
 
 
 def s0():
@@ -84,6 +85,47 @@ def s4():
         print(dates[i], f"{comm_net_pct[i]:0.1f}")
 
 
+def s5():
+
+    # plot net positions (as % of total open interest) for the various participants 
+    # of the disaggregated futures and options report between 2018-01-01 and 2024-01-01.
+
+    con = get_contract(
+                        report.disagg_futs_and_opts,
+                        "ZW",
+                        format.convenience,
+                        "2018-01-01",
+                        "2024-01-01"
+                    )
+
+    # Note that "opts" records are the same as "futs_only" in both the disaggregated and financial reports.
+    # Just use the "futs_only" convenience records to index either report.
+    
+    fig = go.Figure()
+    x   = con[disagg_futs_only.date]
+    ys  = [
+        ( "producer/merchat/processor/user",    con[disagg_futs_only.prod_merc_net_pct] ),
+        ( "managed money",                      con[disagg_futs_only.managed_net_pct] ),
+        ( "swap dealers",                       con[disagg_futs_only.swap_net_pct] ),
+        ( "other reportable",                   con[disagg_futs_only.other_net_pct] ),
+        ( "non reportable",                     con[disagg_futs_only.nonrep_net_pct] )
+    ]
+
+    for pair in ys:
+
+        fig.add_trace(
+            go.Scatter( 
+                {
+                    "x": x,
+                    "y": pair[1],
+                    "name": pair[0]
+                }
+            )
+        )
+
+    fig.show()
+
+
 if __name__ == "__main__":
 
     to_run = int(argv[1])
@@ -93,7 +135,8 @@ if __name__ == "__main__":
         s1,
         s2,
         s3,
-        s4
+        s4,
+        s5
     ]
     
     start = time()
